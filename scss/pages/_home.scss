@@ -7,14 +7,32 @@
 .heroImage {
   width: 65%;
   margin-top: -8%;
+  @include sp {
+    width: 100%;
+    margin-top: -15%;
+  }
 }
 
+header {
+  @include sp {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    margin-top: -6%;
+    padding-top: 6%;
+    z-index: 200000;
+  }
+}
 .heroImageBox {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
+  @include sp {
+    height: 100vh;
+  }
 }
 
 .scroll {
@@ -23,6 +41,11 @@
   right: 4%;
   width: 3%;
   z-index: -1;
+  @include sp {
+    bottom: 6%;
+    right: 4%;
+    width: 10%;
+  }
 }
 
 .contentOuter {
@@ -36,6 +59,11 @@
     font-weight: normal;
     line-height: 1.5;
     width: 80%;
+    @include sp {
+      font-size: 1.4rem;
+      margin: 0 0 4rem 0;
+      width: 100%;
+    }
   }
 }
 
@@ -70,7 +98,9 @@
   &__title {
     font-size: 5rem;
     font-weight: bold;
-    // color: #1a1a1a;
+    @include sp {
+      font-size: 3rem;
+    }
   }
   &__list {
     display: flex;
