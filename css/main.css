@@ -80,23 +80,29 @@ a { text-decoration: none; }
 .sectionTitle { font-weight: 600; text-align: right; font-size: 23px; margin-bottom: 70px; }
 
 .client { padding: 3rem 0 3rem 0; text-decoration: none; transition: 0.8s; background-position: right bottom; transform: skew(0deg); border-bottom: 1px solid #eee; color: #1a1a1a; }
+@media (max-width: 559px) { .client { padding: 1rem 0 1rem 0; } }
 .client:hover { background-image: url(../images/workphoto1.png); background-size: 50%; background-repeat: no-repeat; background-position: right center; transform: skewY(30deg); transform: skewX(165deg); opacity: 0.8; color: #cf0000; }
 .client__title { font-size: 5rem; font-weight: bold; }
 @media (max-width: 559px) { .client__title { font-size: 3rem; } }
 .client__list { display: flex; padding: 1rem 0; list-style-type: none; }
 .client__list li { font-size: 0.8rem; color: #1a1a1a; }
 .client__list li span { display: inline-block; padding: 0 1rem; }
+@media (max-width: 559px) { .client__list li span { padding: 0 0rem; } }
 
 .photo { position: relative; z-index: -1; }
 .photo .photoinner { margin-top: 200px; }
+@media (max-width: 559px) { .photo .photoinner { margin-top: 3rem; } }
 .photo .photoinner__title { text-align: left; margin-bottom: 100px; }
+@media (max-width: 559px) { .photo .photoinner__title { margin-bottom: 3rem; } }
 .photo .photoinner__titlebox { float: left; text-align: center; margin-bottom: 75px; margin-left: -1%; margin-top: -2%; }
+@media (max-width: 559px) { .photo .photoinner__titlebox { margin-bottom: 1rem; } }
 .photo .photoinner__titlebox__jp { font-weight: bold; font-size: 1rem; margin-bottom: 0.5rem; }
 .photo .photoinner__titlebox__en { font-size: 0.8rem; }
 .photo .cf::after { display: block; clear: both; content: ''; }
 .photo img { width: 100%; }
 
 .slide__text1 { writing-mode: vertical-lr; left: -1000%; font-size: 0.8rem; margin: -160px 0 0 -50px; }
+@media (max-width: 559px) { .slide__text1 { margin: -160px 0 0 -25px; } }
 
 .slide__text2 { font-size: 0.8rem; display: inline-block; padding: 2rem 0; }
 
