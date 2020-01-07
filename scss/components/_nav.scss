@@ -72,17 +72,29 @@
   right: 0;
   bottom: 0;
   margin: auto;
+  @include sp {
+    display: block;
+    height: 100%;
+  }
 }
 
 .menu__logo {
   position: absolute;
   top: 46%;
   left: 2.5%;
+  @include sp {
+    top: 35%;
+    left: 15%;
+  }
 }
 .navleft {
   width: 75%;
   padding: 8%;
   grid-row: 1 / span 2;
+  @include sp {
+    width: 60%;
+    margin: auto;
+  }
   img {
     width: 100%;
   }
@@ -100,8 +112,16 @@
   color: #737373;
   width: 89%;
   margin: 0 0 14px 0;
+  @include sp {
+    margin-bottom: 4px;
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
   &:first-child {
     margin-top: 100px;
+    @include sp {
+      margin-top: 0px;
+    }
   }
 }
 
