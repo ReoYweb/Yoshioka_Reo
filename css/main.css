@@ -108,6 +108,7 @@ a { text-decoration: none; }
 
 .footer { display: grid; grid-template-columns: 1fr 4fr 1fr; height: 100vh; position: relative; z-index: 1; grid-template-areas: 'areaA areaB areaC' 'areaD areaE areaF' 'areaG areaH areaI'; }
 .footer .scroll { position: static; transform: rotate(180deg); position: absolute; bottom: 0; right: 0; width: 3%; }
+@media (max-width: 559px) { .footer .scroll { width: 10%; } }
 
 .social a { margin-right: 2rem; display: inline-block; }
 
@@ -127,6 +128,7 @@ a { text-decoration: none; }
 
 .footer .areaE { grid-row: 2; grid-column: 2; align-self: center; }
 .footer .areaE p { font-size: 1.7rem; font-weight: bold; padding-bottom: 1.4rem; }
+@media (max-width: 559px) { .footer .areaE p { font-size: 1.2rem; } }
 
 .footer .areaG { grid-row: 3; grid-column: 1; align-self: flex-end; }
 
