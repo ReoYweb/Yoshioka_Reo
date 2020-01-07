@@ -39,7 +39,7 @@ a { text-decoration: none; }
 
 .navright { grid-row: 1 / span 1; align-self: flex-end; }
 
-.nav__text { grid-row: 2 / span 2; align-self: flex-end; font-size: 0.8rem; line-height: 1.4rem; color: #737373; width: 89%; margin: 0 0 14px 0; }
+.nav__text { grid-row: 2 / span 2; align-self: flex-end; font-size: 0.8rem; line-height: 1.4rem; color: #737373; width: 89%; margin: 0 0 24px 0; }
 @media (max-width: 559px) { .nav__text { margin-bottom: 4px; font-size: 0.7rem; line-height: 1rem; } }
 .nav__text:first-child { margin-top: 100px; }
 @media (max-width: 559px) { .nav__text:first-child { margin-top: 0px; } }
