@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="71px" height="122px" viewBox="0 0 71 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>scroll</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-1761.000000, -878.000000)">
+            <g id="hero" transform="translate(-98.000000, -140.000000)">
+                <g id="scroll" transform="translate(1859.000000, 1019.000000)">
+                    <polygon id="Triangle" stroke="#000000" transform="translate(35.000000, 114.000000) rotate(-180.000000) translate(-35.000000, -114.000000) " points="35 107 42 121 28 121"></polygon>
+                    <rect id="Rectangle" fill="#050505" x="0" y="55" width="70" height="1" rx="0.5"></rect>
+                    <rect id="Rectangle" fill="#050505" transform="translate(35.000000, 55.500000) rotate(-270.000000) translate(-35.000000, -55.500000) " x="0" y="55" width="70" height="1" rx="0.5"></rect>
+                    <polyline id="Path-3" stroke="#000000" points="49 0 70 0 70 27"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

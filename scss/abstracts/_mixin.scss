@@ -1,0 +1,21 @@
+@mixin minpc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}

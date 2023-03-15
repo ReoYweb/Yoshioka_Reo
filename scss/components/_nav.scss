@@ -1,0 +1,203 @@
+.burger {
+  // display: grid;
+  // grid-template-columns: 5px 5px 5px;
+  // grid-template-areas:
+  //   'areaA areaB areaC'
+  //   'areaD areaE areaF'
+  //   'areaG areaH areaI';
+  // grid-gap: 5px 5px;
+  position: fixed;
+  right: 4%;
+  z-index: 9999;
+  // animation: dot 5s ease-in-out 0s;
+  // animation-iteration-count: infinite;
+  // animation-direction: alternate-reverse;
+}
+
+#nav {
+  background: #fff;
+  opacity: 0;
+  width: 92%;
+  height: 92%;
+  z-index: 99999;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 4% 4% 4% 4%;
+  transition: 0.8s ease-out;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: -150px;
+  margin: auto;
+  visibility: hidden;
+}
+
+.nav-inner {
+  padding: 0 1rem 0 0;
+  position: absolute;
+  right: 8%;
+  top: 8%;
+  display: flex;
+  .navbar-item {
+    color: #1a1a1a;
+    display: block;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 0rem 2rem;
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+}
+
+#nav.is-active {
+  background: #fff;
+  width: 92%;
+  height: 92%;
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 4% 4% 4% 4%;
+  transition: 0.6s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  @include sp {
+    display: block;
+    height: 100%;
+  }
+}
+
+.menu__logo {
+  position: absolute;
+  top: 46%;
+  left: 2.5%;
+  @include sp {
+    top: 35%;
+    left: 15%;
+  }
+}
+.navleft {
+  width: 75%;
+  padding: 8%;
+  grid-row: 1 / span 2;
+  @include sp {
+    width: 60%;
+    margin: auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+.navright {
+  grid-row: 1 / span 1;
+  align-self: flex-end;
+}
+
+.nav__text {
+  grid-row: 2 / span 2;
+  align-self: flex-end;
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  color: #737373;
+  width: 89%;
+  margin: 0 0 24px 0;
+  @include sp {
+    margin-bottom: 4px;
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+  &:first-child {
+    margin-top: 100px;
+    @include sp {
+      margin-top: 0px;
+    }
+  }
+}
+
+// @keyframes dot {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// @keyframes oposit {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(-360deg);
+//   }
+// }
+
+.is-active .areaB {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.is-active .areaD {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.is-active .areaE {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.is-active .areaF {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.is-active .areaH {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.white {
+  width: 5px;
+  height: 5px;
+  border: 1px solid #1a1a1a;
+  display: block;
+  box-sizing: border-box;
+  transition: 1s;
+}
+
+.is-active .white {
+  opacity: 0;
+  transition: 1s;
+}
+
+.black {
+  width: 5px;
+  height: 5px;
+  background: #1a1a1a;
+  transition: 1s;
+  animation: oposit 2s ease-in-out 0s;
+  animation-iteration-count: infinite;
+}
+
+.is-active .black {
+  transform: rotate(-315deg);
+  width: 100%;
+  transition: 0.2s;
+}
+
+#navMenu {
+  display: block;
+  width: 100%;
+}

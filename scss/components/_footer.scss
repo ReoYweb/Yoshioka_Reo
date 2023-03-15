@@ -1,0 +1,127 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  grid-template-areas:
+    'areaA areaB areaC'
+    'areaD areaE areaF'
+    'areaG areaH areaI';
+  .scroll {
+    position: static;
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 3%;
+    @include sp {
+      width: 10%;
+    }
+  }
+}
+.social {
+  a {
+    margin-right: 2rem;
+    display: inline-block;
+  }
+}
+
+.github {
+  img {
+    width: 1rem;
+  }
+}
+
+.facebook {
+  width: 1rem;
+}
+
+.instagram {
+  width: 1rem;
+}
+.twitter {
+  width: 1rem;
+}
+
+.mail {
+  img {
+    width: 1rem !important;
+  }
+}
+
+.footer .areaB {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  text-align: left;
+  margin-bottom: 0;
+  padding-top: 2%;
+}
+
+.footer .areaD {
+  grid-row: 2;
+  grid-column: 1;
+  align-self: center;
+  writing-mode: vertical-lr;
+  margin-top: 30%;
+  font-size: 0.8rem;
+}
+
+.footer .areaE {
+  grid-row: 2;
+  grid-column: 2;
+  align-self: center;
+  p {
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding-bottom: 1.4rem;
+    @include sp {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.footer .areaG {
+  grid-row: 3;
+  grid-column: 1;
+  align-self: flex-end;
+}
+
+.footer .areaH {
+  grid-row: 3;
+  grid-column: 2;
+  align-self: flex-end;
+}
+
+.footer .areaI {
+  grid-row: 3;
+  grid-column: 3;
+  align-self: flex-end;
+}
+
+.undertitle {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 15rem 0 15rem;
+  margin: 0 0 1rem 0;
+  letter-spacing: 1rem;
+}
+
+.worksection {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.underwork {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5rem 1%;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  padding: 1.5rem 0;
+  display: block;
+  color: #1a1a1a;
+}
