@@ -54,10 +54,11 @@ header {
 
 .introduce {
   &__title {
-    margin: 150px 0;
-    font-size: 4.8rem;
+    margin: 0px 0 120px 0;
+    font-size: 3.2rem;
     font-weight: bold;
     line-height: 1.2;
+    text-align: center;
     width: 100%;
     @include sp {
       font-size: 1.4rem;
@@ -69,9 +70,58 @@ header {
 
 .sectionTitle {
   font-weight: 600;
-  text-align: right;
+  text-align: left;
   font-size: 23px;
-  margin-bottom: 70px;
+  margin-bottom: 24px;
+}
+
+.work{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 46px;
+  flex-wrap: wrap;
+  &__main{
+    width: 48%;
+    border-radius: 16px;
+    position: relative;
+    &__detail{
+      &:hover{
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+      img{
+        width: 100%;
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        
+      }
+      span{
+        text-align: left;
+        color: #999999;
+        font-size: 12px;
+        padding: 4px 12px;
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        display: inline-block;
+        position: absolute;
+        right: 16px;
+        bottom: 50px;
+      }
+    }
+    &__ttl{
+      text-align: left;
+      color: #1a1a1a;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+    p{
+      text-align: left;
+      font-size: 12px;
+      color: #848484;
+      margin-top: 24px;
+    }
+  }
 }
 
 .client {
@@ -133,7 +183,7 @@ header {
     }
     &__title {
       text-align: left;
-      margin-bottom: 100px;
+      margin-bottom: 24px;
       @include sp {
         margin-bottom: 3rem;
       }
@@ -187,4 +237,8 @@ header {
   font-size: 0.8rem;
   display: inline-block;
   padding: 2rem 0;
+}
+
+#slider{
+  border-radius: 16px;
 }
