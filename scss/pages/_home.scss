@@ -173,6 +173,20 @@ header {
   }
 }
 
+.banner{
+  margin-top: 200px;
+}
+
+.bannerBox{
+  display: flex;
+  gap: 48px;
+  img{
+    width: 21.5%;
+    border-radius: 16px;
+    border: 1px solid #e8e8e8;
+  }
+}
+
 .photo {
   position: relative;
   z-index: -1;
