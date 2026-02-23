@@ -106,7 +106,7 @@ body {
   line-height: 1;
   padding: 4%;
   font-family: 'LINE Seed JP', sans-serif;
-  cursor: none;
+  overflow-x: hidden;
 }
 ol,
 ul {
@@ -130,9 +130,13 @@ table {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
-
-* {
-  cursor: auto;
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.burger {
+  cursor: pointer;
 }

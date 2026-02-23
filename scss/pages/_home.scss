@@ -2,6 +2,7 @@
   width: 2%;
   max-width: 40px;
   position: fixed;
+  z-index: 200000;
 }
 
 .heroImage {
@@ -35,16 +36,64 @@ header {
   }
 }
 
-.scroll {
+// スクロールインジケーター
+.scroll-indicator {
   position: absolute;
-  bottom: 6%;
-  right: 4%;
-  width: 3%;
-  z-index: -1;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+
   @include sp {
-    bottom: 6%;
-    right: 4%;
-    width: 10%;
+    bottom: 24px;
+    right: 24px;
+  }
+
+  &__text {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #1A1A1A;
+  }
+
+  &__line {
+    width: 2px;
+    height: 30px;
+    background-color: #1A1A1A;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+
+    @include sp {
+      height: 24px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: 2px;
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
   }
 }
 
@@ -53,18 +102,34 @@ header {
 }
 
 .introduce {
-  &__title {
-    margin: 0px 0 120px 0;
-    font-size: 3.2rem;
-    font-weight: bold;
-    line-height: 1.2;
-    text-align: center;
-    width: 100%;
+  &__marquee {
+    margin: 0 -4% 200px -4%;
+    overflow: visible;
+    white-space: nowrap;
+    width: 108%;
     @include sp {
-      font-size: 1.7rem;
-      margin: 0 0 4rem 0;
-      width: 100%;
+      margin: 0 -4% 4rem -4%;
     }
+
+    span {
+      display: inline-block;
+      font-size: 12rem;
+      font-weight: bold;
+      color: #e0e0e0;
+      animation: marquee 20s linear infinite;
+      @include sp {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
   }
 }
 
@@ -84,9 +149,11 @@ header {
     display: block;
     border-radius: 16px;
     overflow: hidden;
-    transition: opacity 0.3s ease;
-    &:hover {
-      opacity: 0.8;
+    img {
+      transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    &:hover img {
+      transform: scale(1.1);
     }
   }
   &__image {
@@ -103,32 +170,34 @@ header {
   }
 }
 
-.work{
+.work {
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 48px;
   flex-wrap: wrap;
-  &__main{
-    width: calc(50% - 24px);
-    border-radius: 16px;
-    position: relative;
-    @include tab{
-      width: 100%;
-    }
-    @include sp{
-      width: 100%;
-    }
+}
+
+.work__main {
+  width: calc(50% - 24px);
+  border-radius: 16px;
+  position: relative;
+  @include tab {
+    width: 100%;
+  }
+  @include sp {
+    width: 100%;
+  }
     &__detail{
-      &:hover{
-        opacity: 0.7;
-        transition: 0.3s;
-      }
+      display: block;
+      overflow: hidden;
       img{
         width: 100%;
-        border: 1px solid #e8e8e8;
         border-radius: 16px;
-
+        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      &:hover img{
+        transform: scale(1.1);
       }
       span{
         text-align: left;
