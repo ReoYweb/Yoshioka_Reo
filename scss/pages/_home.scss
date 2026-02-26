@@ -49,7 +49,9 @@ header {
 
   @include sp {
     bottom: 24px;
-    right: 24px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__text {
@@ -108,7 +110,9 @@ header {
     white-space: nowrap;
     width: 108%;
     @include sp {
-      margin: 0 -4% 4rem -4%;
+      margin: 0 0 4rem 0;
+      overflow: hidden;
+      width: 100%;
     }
 
     span {
@@ -138,6 +142,10 @@ header {
   text-align: left;
   font-size: 36px;
   margin-bottom: 24px;
+  @include sp {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 }
 
 .uiux {
@@ -224,7 +232,6 @@ header {
       color: #848484;
       margin-top: 24px;
     }
-  }
 }
 
 .client {
