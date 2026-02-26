@@ -31,6 +31,8 @@ header {
   align-items: center;
   width: 100%;
   height: 100vh;
+  position: relative;
+  z-index: 1;
   @include sp {
     height: 100vh;
   }
@@ -63,26 +65,36 @@ header {
 
   &__line {
     width: 2px;
-    height: 30px;
-    background-color: #1A1A1A;
-    border-radius: 2px;
+    height: 50px;
+    background-color: transparent;
     position: relative;
     overflow: hidden;
 
     @include sp {
-      height: 24px;
+      height: 40px;
     }
 
-    &::after {
+    &::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background-color: #fff;
-      border-radius: 2px;
-      animation: scrollLine 1.5s ease-in-out infinite;
+      height: 40%;
+      background: linear-gradient(to bottom, transparent, #1A1A1A);
+      animation: scrollLine 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background-color: #1A1A1A;
+      border-radius: 3px;
+      animation: scrollDot 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
   }
 }
@@ -90,12 +102,34 @@ header {
 @keyframes scrollLine {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(0%);
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    transform: translateY(-800%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 0;
   }
 }
 
@@ -119,10 +153,12 @@ header {
       display: inline-block;
       font-size: 12rem;
       font-weight: bold;
-      color: #e0e0e0;
+      color: transparent;
+      -webkit-text-stroke: 2px #e0e0e0;
       animation: marquee 20s linear infinite;
       @include sp {
         font-size: 3rem;
+        -webkit-text-stroke: 1px #e0e0e0;
       }
     }
   }
