@@ -7,25 +7,30 @@ gsap.defaults({
   ease: 'power2.inOut'
 });
 
-// ページ読み込み時の処理
-window.addEventListener('load', function() {
-  // body に loading-active クラスを追加（初期状態）
-  document.body.classList.add('loading-active');
-
-  // テキストを1文字ずつ分割
+// DOM 解析完了後すぐにテキスト分割・初期状態セット（フラッシュ防止）
+document.addEventListener('DOMContentLoaded', function() {
   const textElement = document.querySelector('.loading__text');
-  const text = textElement.textContent;
-  textElement.innerHTML = text.split('').map(char =>
-    char === ' ' ? '<span class="char">&nbsp;</span>' : `<span class="char">${char}</span>`
-  ).join('');
+  if (textElement) {
+    const text = textElement.textContent;
+    textElement.innerHTML = text.split('').map(char =>
+      char === ' ' ? '<span class="char">&nbsp;</span>' : `<span class="char">${char}</span>`
+    ).join('');
+  }
 
-  // サブテキストも1文字ずつ分割
   const subtextElement = document.querySelector('.loading__subtext');
-  const subtext = subtextElement.textContent;
-  subtextElement.innerHTML = subtext.split('').map(char =>
-    char === ' ' ? '<span class="char">&nbsp;</span>' : `<span class="char">${char}</span>`
-  ).join('');
+  if (subtextElement) {
+    const subtext = subtextElement.textContent;
+    subtextElement.innerHTML = subtext.split('').map(char =>
+      char === ' ' ? '<span class="char">&nbsp;</span>' : `<span class="char">${char}</span>`
+    ).join('');
+  }
 
+  gsap.set('.loading__text .char', { opacity: 0, x: 30 });
+  gsap.set('.loading__subtext .char', { opacity: 0, x: 20 });
+});
+
+// ページ読み込み完了後にアニメーション開始
+window.addEventListener('load', function() {
   // GSAP Timeline を作成
   const timeline = gsap.timeline({
     onComplete: function() {
@@ -37,10 +42,6 @@ window.addEventListener('load', function() {
       document.body.classList.remove('loading-active');
     }
   });
-
-  // 文字の初期状態（右から歩いてくる）
-  gsap.set('.loading__text .char', { opacity: 0, x: 30 });
-  gsap.set('.loading__subtext .char', { opacity: 0, x: 20 });
 
   // アニメーションシーケンス
   timeline
