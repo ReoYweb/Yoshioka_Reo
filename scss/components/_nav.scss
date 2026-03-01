@@ -8,7 +8,7 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background-color: #007AFF;
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
     color: #fff;
     font-size: 14px;
     font-weight: 500;
@@ -17,7 +17,7 @@
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: #0066D6;
+      background: linear-gradient(135deg, #feda75 0%, #fa7e1e 20%, #d62976 45%, #962fbf 70%, #4f5bd5 100%);
       transform: scale(1.05);
     }
   }

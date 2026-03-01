@@ -42,3 +42,24 @@
 
   animate();
 })();
+
+// スクロール連動マーキー
+(function() {
+  const marqueeSpan = document.querySelector('.introduce__marquee span');
+  if (!marqueeSpan) return;
+
+  let currentX = 0;
+  let targetX = 0;
+
+  window.addEventListener('scroll', () => {
+    targetX = -window.scrollY * 0.5; // スクロール量に応じて移動
+  });
+
+  function animateMarquee() {
+    currentX += (targetX - currentX) * 0.1; // スムーズに追従
+    marqueeSpan.style.transform = `translateX(${currentX}px)`;
+    requestAnimationFrame(animateMarquee);
+  }
+
+  animateMarquee();
+})();

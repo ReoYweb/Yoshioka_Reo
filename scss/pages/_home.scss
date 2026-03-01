@@ -3,6 +3,9 @@
   max-width: 40px;
   position: fixed;
   z-index: 200000;
+  @include sp {
+    max-width: 28px;
+  }
 }
 
 .heroImage {
@@ -16,7 +19,6 @@
 
 header {
   @include sp {
-    background-color: white;
     height: 60px;
     width: 100%;
     position: fixed;
@@ -153,12 +155,10 @@ header {
       display: inline-block;
       font-size: 12rem;
       font-weight: bold;
-      color: transparent;
-      -webkit-text-stroke: 2px #e0e0e0;
-      animation: marquee 20s linear infinite;
+      color: #f0f0f0;
+      will-change: transform;
       @include sp {
         font-size: 3rem;
-        -webkit-text-stroke: 1px #e0e0e0;
       }
     }
   }
