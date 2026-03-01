@@ -325,19 +325,36 @@ header {
 
 .bannerBox{
   display: flex;
-  gap: 48px;
-  flex-wrap: wrap;
+  gap: 24px;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   @include sp{
+    gap: 16px;
+  }
+  &__track {
+    display: flex;
     gap: 24px;
-    justify-content: space-between;
+    animation: bannerScroll 35s linear infinite;
+    @include sp{
+      gap: 16px;
+    }
   }
   img{
-    width: 21.5%;
-    border-radius: 16px;
-    border: 1px solid #e8e8e8;
+    flex-shrink: 0;
+    width: 280px;
     @include sp{
-      width: 45%;
+      width: 200px;
     }
+  }
+}
+
+@keyframes bannerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
