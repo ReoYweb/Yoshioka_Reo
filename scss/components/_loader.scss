@@ -41,14 +41,27 @@
     justify-content: center;
   }
 
-  &__logo {
+  &__logo-wrap {
+    position: relative;
     width: 36px;
     height: 42px;
 
-    path {
-      fill: #1A1A1A;
-      transform-origin: center center;
+    // 前景（黒ロゴ）を重ねる
+    #logo-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // 初期状態：完全に非表示（JS で clip-path を動かす）
+      clip-path: polygon(0% 100%, 100% 100%, 100% 110%, 0% 110%);
     }
+  }
+
+  &__logo {
+    width: 36px;
+    height: 42px;
+    display: block;
   }
 
   &__text-wrap {

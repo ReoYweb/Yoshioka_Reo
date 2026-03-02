@@ -43,15 +43,64 @@ window.addEventListener('load', function() {
     }
   });
 
+  // ===== 波塗りアニメーション（CSS clip-path polygon + rAF）=====
+  // SVG clipPath の座標系問題を回避し、CSS clip-path で確実に動作させる
+  function startWaveFill() {
+    const el = document.getElementById('logo-fill');
+    if (!el) return;
+
+    const DURATION = 1100; // ms
+    const start = performance.now();
+
+    // power2.inOut イーズ
+    function ease(t) {
+      return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+
+    function tick(ts) {
+      const t = Math.min((ts - start) / DURATION, 1);
+      const eased = ease(t);
+
+      // base: 110%(要素外の下) → -10%(要素外の上) で下から上へ塗りつぶし
+      const base = 110 - 120 * eased;
+      // 波の振幅：アニメーション中盤でピーク（sin(π*t) = 0→1→0）
+      const amp = 12 * Math.sin(t * Math.PI);
+
+      // 6点の polygon で波形の上端を表現
+      el.style.clipPath = [
+        'polygon(',
+        `0% 100%, 100% 100%,`,
+        `100% ${base + amp}%,`,
+        `75%  ${base - amp}%,`,
+        `50%  ${base + amp}%,`,
+        `25%  ${base - amp}%,`,
+        `0%   ${base + amp}%`,
+        ')'
+      ].join(' ');
+
+      if (t < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.style.clipPath = 'none'; // 完全表示に切り替え
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
   // アニメーションシーケンス
   timeline
-    // 1. ロゴが中心でフェードイン（0.6秒）
-    .from('.loading__logo', {
-      duration: 0.6,
+    // 1. ロゴがフェードイン
+    .from('.loading__logo-wrap', {
+      duration: 0.4,
       opacity: 0,
       scale: 0.8,
       ease: 'power2.out'
     })
+    // 1b. 波塗りアニメーション開始（ロゴと同時）
+    .add(startWaveFill, '<')
+    // タイムライン上で波の 1.1s を確保（テキスト開始タイミング調整用）
+    .to({}, { duration: 1.1 }, '<')
 
     // 2. テキストエリアを広げる
     .to('.loading__text-wrap', {
